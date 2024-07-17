@@ -1,38 +1,22 @@
-import { Center, FormControl, FormLabel, Input } from '@chakra-ui/react'
+import { Box, Center, FormControl, FormLabel, Input } from '@chakra-ui/react'
 import { ButtonComp } from '../Button/Button'
 import { login } from '../../services/login'
-import { useEffect, useState } from 'react'
-import { api } from '../../api'
+import { useState } from 'react'
 
-interface IUserData {
-    email: string,
-    password: string,
-    name: string
-}
 
 export const Card = () => {
 
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
-    const [userData, setUserData] = useState<null | IUserData>()
 
-    useEffect(() => {
-        const getData = async () => {
-            const data: any | IUserData = await api
-            setUserData(data);
-
-        }
-
-        getData()
-    }, [])
 
     return (
-        <main style={{ width: '100%' }}>
-            {userData === null || userData === undefined
-                ? <Center>
-                    <h1> Carregando Informações...</h1>
-                  </Center>
-                : <FormControl>
+        <main style={{ width: '100%', maxWidth: '600px' }}>
+            <Box bg='#E5E5E5' borderRadius='25px' padding='15px' width="100%">
+                <FormControl>
+                    <Center>
+                        <h1>Faça o Login</h1>
+                    </Center>
                     <FormLabel>Email</FormLabel>
                     <Input
                         type='email'
@@ -53,8 +37,7 @@ export const Card = () => {
                         Login
                     </ButtonComp>
                 </FormControl>
-            }
-
+            </Box>
         </main>
     )
 }
