@@ -1,32 +1,30 @@
-import { 
+import {
   Box,
   Center,
   ChakraProvider,
 } from '@chakra-ui/react'
 import "./App.css"
-import { login } from './services/login';
 import { Layout } from './components/Layout/Layout';
 import { Card } from './components/Card/Card';
-import { ButtonComp } from './components/Button/Button';
+
 
 
 function App() {
   return (
     <ChakraProvider>
       <Layout>
-      <Box minHeight='84.3vh' backgroundColor='#9413DC' padding='25px' display='flex' alignItems='center'>
-        <Box bg='#E5E5E5' borderRadius='25px' padding='15px'> 
+        <Box minHeight='84.3vh' backgroundColor='#9413DC' padding='25px' display='flex' alignItems='center'>
           <Center>
-            <h1>Faça o Login</h1>
-          </Center>
-          <Center flexDirection='column' gap='10px'>
-            <Card />
-            <ButtonComp login={() => login()}>
-              Login
-            </ButtonComp>
+            <Box bg='#E5E5E5' borderRadius='25px' padding='15px' maxW='500px'>
+              <Center>
+                <h1>Faça o Login</h1>
+              </Center>
+              <Center flexDirection='column' gap='10px'>
+                <Card />
+              </Center>
+            </Box>
           </Center>
         </Box>
-      </Box>
       </Layout>
     </ChakraProvider>
   )
