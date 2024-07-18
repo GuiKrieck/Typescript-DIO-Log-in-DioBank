@@ -9,7 +9,7 @@ interface IUserData {
     password: string
     name: string
     balance: number
-    id: number
+    id: string
 }
 
 const Conta = () => {
@@ -31,7 +31,7 @@ const Conta = () => {
     const actualDate = new Date()
     const formatedDate = `${actualDate.getDate()}/${actualDate.getMonth() + 1}/${actualDate.getFullYear()} - ${actualDate.getHours()}:${actualDate.getMinutes()} `
 
-    if(userData && id !== userData.id.toString()){
+    if(userData && id !== userData.id){
         navigate('/')
     }
 
