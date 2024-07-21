@@ -15,11 +15,11 @@ const Home = () => {
     const navigate = useNavigate()
     const {setIsLoggedIn} = useContext(AppContext)
 
-    const validateUser = async (email:string) => {
-        const loggedIn = await login(email)
+    const validateUser = async (email:string, password:string) => {
+        const loggedIn = await login(email, password)
 
         if(!loggedIn){
-            alert("Email inválido")
+            alert("Email e/ou senha inválidos, tente novamente.")
             return
         }
 
@@ -53,7 +53,7 @@ const Home = () => {
                         border='1px solid #1616bd'
                         marginBottom='30px'
                     />
-                    <ButtonComp onClick={() => validateUser(email)}>
+                    <ButtonComp onClick={() => validateUser(email, password)}>
                         Login
                     </ButtonComp>
                 </FormControl>
