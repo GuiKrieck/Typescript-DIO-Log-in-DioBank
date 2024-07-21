@@ -3,12 +3,14 @@ import './Header.css'
 import { useContext } from 'react'
 import { AppContext } from '../../context/AppContext'
 import { useNavigate } from 'react-router-dom'
+import { changeLocalStorage } from '../../services/storage'
 
 export const Header = () => {
     const { isLoggedIn, setIsLoggedIn } = useContext(AppContext)
     const navigate = useNavigate()
 
     function logOut():void{
+        changeLocalStorage({login:false})
         setIsLoggedIn(false)
         navigate('/')
     }
