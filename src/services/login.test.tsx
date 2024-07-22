@@ -5,13 +5,13 @@ describe('login', () =>{
     const mockEmail = 'gui@dio.me'
     const mockPassword = '123456'
 
-    it('Deve exibir um alert com boas vindas caso o email seja válido', async() =>{
+    it('Deve ser verdadeiro caso o email E a senha sejam válidos', async() =>{
         const response = await login(mockEmail, mockPassword)
         expect(response).toBeTruthy()
         
     })
 
-    it('Deve exibir um erro caso o email seja inválido', async() =>{
+    it('Deve ser falso caso o email OU a senha sejam inválidos', async() =>{
         const response = await login('email@invalido.com', "171819")
         expect(response).toBeFalsy()
     })
